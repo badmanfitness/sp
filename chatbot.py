@@ -1,9 +1,16 @@
-while True:
-    user_input = input("You: ").lower()
-    if "hello" in user_input:
-        print("Bot: Hi there! How can I help you?")
-    elif "bye" in user_input:
-        print("Bot: Goodbye! Have a great day.")
-        break
-    else:
-        print("Bot: Sorry, I didn’t understand that.")
+from nltk.chat.util import Chat, reflections
+
+# Define patterns and responses
+pairs = [
+    ["hi", ["Hello!", "Hi there!"]],
+    ["hello", ["Hey!", "Hi, how can I help you?"]],
+    ["how are you?", ["I'm doing great, thanks!", "All good!"]],
+    ["what is your name?", ["I'm your Python chatbot."]],
+    ["bye", ["Goodbye!", "See you later!"]]
+]
+
+# Create the chatbot
+chatbot = Chat(pairs, reflections)
+
+# Start conversation
+chatbot.converse()
